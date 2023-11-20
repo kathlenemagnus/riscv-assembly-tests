@@ -3,6 +3,9 @@
  * Description: Stream of nops.
  */
 
+.include "host.s"
+.include "macros.s"
+
 .section .text
     .global main
 
@@ -10,9 +13,8 @@ main:
     .rept 1000
         nop
     .endr
-pass:
-    wfi
-fail:
-    nop
+
+    test_pass
+
 .section .data
     .fill 64, 4, 0xFFFFFFFF

@@ -40,6 +40,8 @@ set (LINKER_SCRIPT ${BASE_DIR}/common/main.ld)
 set (CMAKE_ASM_LINKER_FLAGS "-T ${LINKER_SCRIPT} -e main")
 set (CMAKE_ASM_LINK_EXECUTABLE "${CMAKE_LINKER} ${CMAKE_ASM_LINKER_FLAGS} <OBJECTS> -o <TARGET>")
 
+include_directories(common)
+
 # Base
 add_subdirectory (base)
 # Atomic Extension

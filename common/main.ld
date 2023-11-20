@@ -2,9 +2,11 @@ OUTPUT_ARCH("riscv")
 
 SECTIONS
 {
-  . = 0x0;
+  . = 0x4000;
+  .host : { *(.host) }
+  . = 0x80000000;
   .text : { *(.text) }
-  . = ALIGN(0x8000);
+  . = ALIGN(0x1000);
   .data : { *(.data) }
   . = ALIGN(0x1000);
   .bss  : { *(.bss) }
