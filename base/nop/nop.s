@@ -14,7 +14,11 @@ main:
         nop
     .endr
 
+pass:
     test_pass
+
+fail:
+    test_fail
 
 .section .data
     .fill 64, 4, 0xFFFFFFFF
