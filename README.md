@@ -1,10 +1,10 @@
 # riscv-assembly-tests
--Simple Framework for Compiling RISC-V Assembly Tests
+Simple Framework for Compiling RISC-V Assembly Tests
 
 ## Build Directions
 
-You will need an installation of the RISC-V tools available, specifically
-`riscv64-unknown-elf-as` and `riscv64-unknown-elf-ld`.
+This repo is compatible with the [riscv-gnu-toolchain](https://github.com/riscv-collab/riscv-gnu-toolchain).
+Compatibility with other RISC-V toolchains is not guaranteed.
 
 Build directions:
 ```
