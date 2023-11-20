@@ -1,6 +1,6 @@
-.section .host,"aw"
-.global tohost
-.global fromhost
+.section .tohost,"aw"
+.globl tohost
+.globl fromhost
 
 tohost:
     .dword 0
