@@ -1,5 +1,5 @@
 /* Test: nop.elf
- * ISA: RV64I
+ * ISA: rv64i
  * Description: Stream of nops.
  */
 

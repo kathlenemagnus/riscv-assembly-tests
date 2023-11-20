@@ -1,8 +1,11 @@
 /* Test: add.elf
- * ISA: RV64I
+ * ISA: rv64i
  * Description: Stream of reg-reg load upper immediate instruction
  *.
  */
+
+.include "host.s"
+.include "macros.s"
 
 .section .text
     .global main
@@ -15,7 +18,13 @@ main:
         lui x5, 0x00000
         lui x5, 0xF0000
     .endr
-    wfi
+
+pass:
+    test_pass
+
+fail:
+    test_fail
 
 .section .data
+data:
     .fill 64, 4, 0xFFFFFFFF

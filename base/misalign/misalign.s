@@ -1,5 +1,5 @@
 /* Test: misalgn.elf
- * ISA: RV64I
+ * ISA: rv64i
  * Description: Stream of misaligned loads and stores.
  */
 
@@ -14,7 +14,7 @@ main:
     addi x6, x3, -8
     add x6, x6, x3
 
-    # Init x5: 0xaaccaacc
+    # Init x5 to 0xaaccaacc
     addi x29, x29, 8
     addi x5, x5, 0xaa
     sll x5, x5, x29
@@ -34,6 +34,7 @@ main:
 
     # Counter for loop
     addi x28, x0, -9
+
 loop:
     sd x5, 0(x6)
     ld x7, 0(x6)

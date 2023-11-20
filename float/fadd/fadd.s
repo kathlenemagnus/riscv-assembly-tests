@@ -1,7 +1,10 @@
 /* Test: fadd.elf
- * ISA: RV64IF
+ * ISA: rv64if_zicsr
  * Description: Stream of fadd instructions.
  */
+
+.include "host.s"
+.include "macros.s"
 
 .section .text
     .global main
@@ -13,7 +16,13 @@ main:
     .rept 1000
         fadd.d f5, f6, f7
     .endr
-    wfi
+
+pass:
+    test_pass
+
+fail:
+    test_fail
 
 .section .data
+data:
     .fill 64, 4, 0xFFFFFFFF

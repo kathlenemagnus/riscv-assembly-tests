@@ -1,19 +1,26 @@
 /* Test: mv_lds.elf
  * ISA: RV64c
- * Description: Stream of compressed move operations followed by a non-compress load
-	Tests the decode cache
+ * Description: Stream of compressed and regular mv instructions.
  */
+
+.include "host.s"
+.include "macros.s"
 
 .section .text
     .global main
 
 main:
-    .rept 4095
+    .rept 500
         c.mv x10,x5
+        mv   x5, x10
     .endr
-    ld      sp,24(gp)
-    fence.i
-    wfi
+
+pass:
+    test_pass
+
+fail:
+    test_fail
 
 .section .data
+data:
     .fill 64, 4, 0xFFFFFFFF

@@ -1,7 +1,10 @@
 /* Test: add.elf
- * ISA: RV64I
- * Description: Stream of reg-reg add instructions.
+ * ISA: rv64i
+ * Description: Stream of reg-reg sub instructions.
  */
+
+.include "host.s"
+.include "macros.s"
 
 .section .text
     .global main
@@ -11,11 +14,17 @@ main:
     addi x29, x0, 1
 loop:
     .rept 100
-        add x5, x6, x7
+        sub x30, x28, x29
     .endr
     addi x29, x29, 1
     bgeu x28, x29, loop
-    wfi
+
+pass:
+    test_pass
+
+fail:
+    test_fail
 
 .section .data
-    .fill 64, 4, 0xFFFFFFFF
+data:
+     .fill 64, 4, 0xFFFFFFFF

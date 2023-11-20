@@ -21,4 +21,5 @@ fail:
     test_fail
 
 .section .data
+data:
     .fill 64, 4, 0xFFFFFFFF
